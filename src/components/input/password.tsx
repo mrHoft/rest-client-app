@@ -37,6 +37,7 @@ export function InputPassword({ name, placeholder }: { name: string; placeholder
     <div>
       <div className={styles.container}>
         <input
+          testId={`input-${name}`}
           className={styles.password}
           type={showPassword ? 'text' : 'password'}
           name={name}

@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
-import Login from './login';
+import Register from './register';
 
 jest.mock('~/app/auth/actions');
 jest.mock('~/components/loader/loader');
@@ -8,10 +8,12 @@ jest.mock('~/components/message/message');
 
 describe('Login Component', () => {
   const mockDict = {
-    title: 'Register',
+    title: 'Login',
     email: 'Email',
     password: 'Password',
-    submit: 'Register',
+    submit: 'Login',
+    buttonToRegister: 'Register',
+    success: "You've successfully logged in!",
   };
 
   beforeEach(() => {
@@ -19,7 +21,7 @@ describe('Login Component', () => {
   });
 
   it('renders correctly', () => {
-    const { getByText } = render(<Login dict={mockDict} locale="en" />);
+    const { getByText } = render(<Register dict={mockDict} locale="en" />);
 
     expect(getByText(mockDict.email)).toBeInTheDocument();
 

@@ -40,6 +40,19 @@ describe('ResponseViewer', () => {
     expect(getByText('3000ms')).toHaveStyle('color: red');
   });
 
+  it('should not render status block if there is no status', () => {
+    const response: RestResponse = {
+      data: 'Error data',
+      status: null,
+      message: 'Not Found',
+      contentType: 'text/html',
+      lapse: 3000,
+    };
+    const { queryByText } = render(<ResponseViewer dict={mockDict} response={response} />);
+
+    expect(queryByText('Not Found')).not.toBeInTheDocument();
+  });
+
   it('should render response with empty data when no data or message is provided', () => {
     const response: RestResponse = {
       data: null,

@@ -8,6 +8,25 @@ const mockDict = { response: 'Response' };
 describe('ResponseViewer', () => {
   it('should render correctly', () => {
     const response: RestResponse = {
+      data: 'Response data',
+      status: 200,
+      message: 'OK',
+      contentType: 'application/json',
+      lapse: 1000,
+    };
+    const { getByText } = render(<ResponseViewer dict={mockDict} response={response} />);
+
+    expect(getByText('200')).toBeInTheDocument();
+
+    expect(getByText('OK')).toHaveStyle('color: green');
+
+    expect(getByText('application/json')).toBeInTheDocument();
+
+    expect(getByText('1000ms')).toHaveStyle('color: green');
+  });
+
+  it('should change colors of status and lapse', () => {
+    const response: RestResponse = {
       data: 'Error data',
       status: 404,
       message: 'Not Found',
@@ -16,13 +35,9 @@ describe('ResponseViewer', () => {
     };
     const { getByText } = render(<ResponseViewer dict={mockDict} response={response} />);
 
-    expect(getByText('404')).toBeInTheDocument();
+    expect(getByText('Not Found')).toHaveStyle('color: unset');
 
-    expect(getByText('Not Found')).toBeInTheDocument();
-
-    expect(getByText('text/html')).toBeInTheDocument();
-
-    expect(getByText('3000ms')).toBeInTheDocument();
+    expect(getByText('3000ms')).toHaveStyle('color: red');
   });
 
   it('should render response with empty data when no data or message is provided', () => {

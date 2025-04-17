@@ -5,7 +5,7 @@ import Variables from './variables';
 
 jest.mock('~/entities/useVariables');
 
-describe('Variables Component', () => {
+describe('Variables', () => {
   const mockSetVariable = jest.fn();
   const mockSetAllVariables = jest.fn();
   const mockGetVariables = jest.fn();

@@ -26,7 +26,7 @@ jest.mock('~/components/message/message', () => ({
   },
 }));
 
-describe('Login Component', () => {
+describe('Login', () => {
   const mockDict = {
     title: 'Login',
     email: 'Email',
@@ -71,6 +71,7 @@ describe('Login Component', () => {
 
     await waitFor(() => {
       expect(Message.show).toHaveBeenCalledWith(mockDict.success, 'regular');
+
       expect(Loader.hide).toHaveBeenCalled();
     });
   });

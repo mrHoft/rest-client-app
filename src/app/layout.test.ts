@@ -9,7 +9,7 @@ jest.mock('next/headers', () => ({
 }));
 
 describe('RootLayout', () => {
-  it('correct metadata', async () => {
+  it('correct metadata', () => {
     expect(metadata).toEqual({
       title: 'Restman',
       description: 'REST api testing tool',

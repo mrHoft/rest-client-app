@@ -1,0 +1,8 @@
+.sidebar {
+  position: fixed;
+  top: 10rem;
+  left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}

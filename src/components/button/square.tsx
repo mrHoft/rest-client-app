@@ -4,9 +4,11 @@ import { useState } from 'react';
 
 import styles from './button.module.css';
 
-type TIcon = 'code' | 'hash' | 'list' | 'copy' | 'edit';
+type TIcon = 'about' | 'server' | 'code' | 'hash' | 'list' | 'copy' | 'edit';
 
 const src: Record<TIcon, string> = {
+  about: '/icons/about.svg',
+  server: '/icons/server.svg',
   code: '/icons/code.svg',
   hash: '/icons/hash.svg',
   list: '/icons/list.svg',

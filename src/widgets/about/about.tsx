@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useMemo } from 'react';
 import Card from '~/components/card/card';
+
 import styles from './about.module.css';
 
 export default function About({ dict }: { dict: Record<string, string> }) {

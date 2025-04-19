@@ -28,7 +28,6 @@ export function Sidebar({ dict, locale, user }: SidebarProps) {
   };
 
   const handleCodeGenerator = () => {
-    query.entries;
     const headers = Array.from(query.entries()).map(([key, value]) => ({
       key,
       value: value?.toString() ?? '',

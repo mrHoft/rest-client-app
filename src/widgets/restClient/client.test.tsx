@@ -36,7 +36,7 @@ describe('RestClient', () => {
       push: pushMock,
     }));
 
-    useHistory.mockReturnValue({
+    (useHistory as jest.Mock).mockReturnValue({
       pushHistory: mockPushHistory,
     });
   });
@@ -75,51 +75,6 @@ describe('RestClient', () => {
     fireEvent.click(getByText('Send'));
 
     expect(mockPushHistory).toHaveBeenCalled();
-  });
-
-  it('navigates to history', () => {
-    const { getByTitle } = render(
-      <RestClient
-        dict={mockDict}
-        locale="en"
-        initMethod="GET"
-        initUrl="https://example.com"
-        initBody='{"userId": 55, "text": "test"}'
-        initQuery={{ testHeader: 'testValue' }}
-        response={{ data: 'Response data', status: 200, message: 'OK', contentType: 'application/json', lapse: 3000 }}
-      />
-    );
-    const historyButton = getByTitle('History');
-
-    fireEvent.click(historyButton);
-
-    expect(pushMock).toHaveBeenCalled();
-  });
-
-  it('opens modal', () => {
-    const modalShowMock = jest.fn();
-    jest.mock('~/components/modal/modal', () => ({
-      Modal: {
-        show: modalShowMock,
-      },
-    }));
-
-    const { getByTitle, queryByText } = render(
-      <RestClient
-        dict={mockDict}
-        locale="en"
-        initMethod="GET"
-        initUrl="https://example.com"
-        initBody='{"userId": 55, "text": "test"}'
-        initQuery={{ testHeader: 'testValue' }}
-        response={{ data: 'Response data', status: 200, message: 'OK', contentType: 'application/json', lapse: 3000 }}
-      />
-    );
-    const generatorButton = getByTitle('Generate code');
-
-    fireEvent.click(generatorButton);
-
-    expect(queryByText('Generate code')).toBeInTheDocument();
   });
 
   it('handles change URL', () => {

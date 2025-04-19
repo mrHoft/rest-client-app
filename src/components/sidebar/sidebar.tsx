@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { ButtonSquare } from '~/components/button/square';
 import { Loader } from '~/components/loader/loader';
 import { Modal } from '~/components/modal/modal';
@@ -19,7 +19,8 @@ interface SidebarProps {
 
 export function Sidebar({ dict, locale, user }: SidebarProps) {
   const router = useRouter();
-  const route = usePathname().split('/');
+  const query = useSearchParams();
+  const params = usePathname().split('/');
 
   const handleNavigate = (url: string) => () => {
     if (url !== 'about') Loader.show();
@@ -27,40 +28,32 @@ export function Sidebar({ dict, locale, user }: SidebarProps) {
   };
 
   const handleCodeGenerator = () => {
-    if (typeof window !== 'undefined') {
-      const [path, query] = window.location.href.split('?');
-      const headers = query
-        ? query
-            .split('&')
-            .map((item: string) => item.split('='))
-            .map(([key, value]) => ({
-              key,
-              value: value?.toString() ?? '',
-              enabled: true,
-            }))
-        : [];
-      const params = path.split('/');
-      const body = base64Decode(params[params.length - 1]);
-      const url = base64Decode(params[params.length - 2]);
-      const method = params[params.length - 3];
-      if (methods.includes(method as TMethod)) {
-        Modal.show(<CodeGenerator dict={dict} data={{ method, url, body, headers }} />);
-      }
+    query.entries;
+    const headers = Array.from(query.entries()).map(([key, value]) => ({
+      key,
+      value: value?.toString() ?? '',
+      enabled: true,
+    }));
+    const method = params[3] ?? '';
+    const url = base64Decode(params[4] ?? '');
+    const body = base64Decode(params[5] ? params[5].split('?')[0] : '');
+    if (methods.includes(method as TMethod)) {
+      Modal.show(<CodeGenerator dict={dict} data={{ method, url, body, headers }} />);
     }
   };
 
   return (
     <aside className={styles.sidebar}>
-      {user && route[2] !== 'client' && (
+      {user && params[2] !== 'client' && (
         <ButtonSquare icon="server" title="REST client" onClick={handleNavigate('client/GET')} />
       )}
-      {user && route[2] === 'client' && (
+      {user && params[2] === 'client' && (
         <ButtonSquare icon="code" title="Generate code" onClick={handleCodeGenerator} />
       )}
-      {user && route[2] !== 'history' && (
+      {user && params[2] !== 'history' && (
         <ButtonSquare icon="list" title="History" onClick={handleNavigate('history')} />
       )}
-      {user && route[2] !== 'variables' && (
+      {user && params[2] !== 'variables' && (
         <ButtonSquare icon="hash" title="Variables" onClick={handleNavigate('variables')} />
       )}
       <ButtonSquare icon="about" title="About" onClick={handleNavigate('about')} />

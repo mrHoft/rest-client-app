@@ -1,0 +1,47 @@
+.editor {
+  position: relative;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  border: var(--border-thickness) solid var(--color30);
+  height: 12rem;
+  font-size: 0.875rem;
+  background-color: var(--color10);
+}
+
+.editor__code {
+  margin-top: 1lh;
+  width: 100%;
+  height: calc(100% - 1lh);
+  border-top: 1px solid var(--color30);
+  display: flex;
+  column-gap: 0.5rem;
+  overflow: auto;
+}
+
+.editor__numbers {
+  color: #888;
+  user-select: none;
+  text-align: right;
+}
+
+.editor__strings {
+  width: 100%;
+  margin: 0;
+  border-left: 1px solid var(--color30);
+  height: max-content;
+  outline: none;
+  line-height: 1.5;
+  tab-size: 2;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.editor__strings.editable {
+  -webkit-user-modify: read-write-plaintext-only;
+}
+
+.editor__mode {
+  position: absolute;
+  top: 0.375rem;
+  right: 4.5rem;
+}

@@ -1,0 +1,35 @@
+.response__body {
+  box-sizing: border-box;
+  width: 100%;
+  height: 12rem;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+  border-radius: var(--border-radius);
+  background-color: var(--color10);
+  border: var(--border-thickness) solid var(--color30);
+  cursor: text;
+  user-select: text;
+  -webkit-user-select: text;
+  overflow: auto;
+}
+
+.response__controls {
+  margin-bottom: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.response__controls > h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.response__status {
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius);
+  background-color: var(--color10);
+  display: flex;
+  column-gap: 0.5rem;
+  border: var(--border-thickness) solid var(--color30);
+}

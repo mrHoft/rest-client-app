@@ -1,0 +1,31 @@
+.generator {
+  display: flex;
+  flex-direction: column;
+}
+
+.generator__title {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.generator__controls {
+  margin-bottom: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.generator__body {
+  box-sizing: border-box;
+  width: 100%;
+  height: 12rem;
+  font-size: 1rem;
+  padding: 0 0.5rem;
+  border-radius: var(--border-radius);
+  background-color: var(--color10);
+  border: var(--border-thickness) solid var(--color30);
+  cursor: text;
+  user-select: text;
+  -webkit-user-select: text;
+  overflow: auto;
+}

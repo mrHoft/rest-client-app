@@ -1,0 +1,141 @@
+.container {
+  position: relative;
+  min-width: 12em;
+  box-sizing: border-box;
+  padding: 0 0.6rem;
+  border-radius: var(--border-radius);
+  border: var(--border-thickness) solid var(--color30);
+  background-color: var(--color00);
+  color: var(--color100);
+  font-size: 1rem;
+  transition:
+    background-color 0.25s linear,
+    border-color 0.25s linear;
+}
+
+.container.hidden {
+  display: none;
+}
+
+.input,
+.password {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem 1rem 0.6rem 0;
+  border: none;
+  background-color: inherit;
+  color: inherit;
+  font-size: 1rem;
+  -webkit-text-fill-color: var(--color100);
+}
+.password {
+  padding-right: 3rem;
+  padding-bottom: 0.3rem;
+}
+
+.container:has(.input:read-only) {
+  border-color: var(--color30);
+  background-color: var(--color00);
+}
+
+.input:valid ~ .input__valid,
+.password:valid ~ .password__valid {
+  display: block;
+}
+
+.input__valid {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: none;
+  color: green;
+}
+
+.password__valid {
+  position: absolute;
+  top: 0.75rem;
+  right: 2.5rem;
+  display: none;
+  color: green;
+}
+
+.select__placeholder {
+  position: absolute;
+  top: 0;
+  left: 0.6rem;
+  color: inherit;
+  opacity: 0.7;
+  font-size: 0.8em;
+  pointer-events: none;
+  transition: 0.3s ease all;
+}
+
+.input__placeholder {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  color: inherit;
+  opacity: 0.7;
+  pointer-events: none;
+  transition: 0.3s ease all;
+}
+
+.password:focus ~ .input__placeholder,
+.password:not(:placeholder-shown) ~ .input__placeholder,
+.input:focus ~ .input__placeholder,
+.input:not(:placeholder-shown) ~ .input__placeholder {
+  top: 0;
+  font-size: 0.8em;
+}
+
+.password__show {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--border-radius);
+  transition: background-color 0.25s linear;
+}
+.password__show::after {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  background-image: url(/icons/eye-slash.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+  filter: invert(var(--color-scheme));
+}
+.password__show:has(input:checked)::after {
+  background-image: url(/icons/eye.svg);
+}
+
+.password__show input[type='checkbox'] {
+  display: none;
+}
+
+.password__strength {
+  height: 0.3rem;
+  border-radius: 0.15rem;
+  transition: width 0.25s linear;
+}
+
+@media (hover: hover) {
+  .container:hover,
+  .container:has(.input:focus) {
+    border-color: var(--color40);
+    background-color: var(--color10);
+  }
+
+  .container:has(.input:read-only):hover {
+    border-color: var(--color40);
+    background-color: var(--color00);
+  }
+
+  .password__show:hover {
+    background-color: var(--color20);
+  }
+}

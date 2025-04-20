@@ -1,0 +1,75 @@
+.client {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin: 1rem auto;
+  max-width: 60rem;
+  border-radius: var(--border-radius);
+}
+
+.client__title {
+  margin-top: 0;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.client__section_title {
+  font-size: 1.2rem;
+  margin: 0 0 0.25rem;
+}
+
+.client__form {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.client__req {
+  display: flex;
+  flex-grow: 1;
+}
+
+.client__method {
+  border: var(--border-thickness) solid var(--color30);
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  border-right: none;
+  background-color: var(--color10);
+  color: var(--color100);
+  font-size: 1rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  transition:
+    background-color 0.25s linear,
+    border-color 0.25s linear;
+}
+
+.client__url {
+  flex-grow: 1;
+  border: var(--border-thickness) solid var(--color30);
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  background-color: var(--color10);
+  color: var(--color100);
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  transition:
+    background-color 0.25s linear,
+    border-color 0.25s linear;
+}
+
+@media (hover: hover) {
+  .client__method:hover,
+  .client__url:hover,
+  .client__url:focus {
+    border-color: var(--color40);
+    background-color: var(--color20);
+  }
+}
+
+.client__btns {
+  align-self: flex-end;
+  display: flex;
+  gap: 0.25rem;
+}

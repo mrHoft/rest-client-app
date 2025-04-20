@@ -1,0 +1,22 @@
+.page404 {
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 1rem;
+  color: var(--color100);
+}
+
+.page404__image {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-image: url('/icons/frown.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 2.5rem;
+}
+
+.page404__link {
+  color: var(--color100);
+  text-decoration: none;
+}

@@ -1,0 +1,39 @@
+.language {
+  position: relative;
+  display: inline-block;
+  appearance: none;
+  box-sizing: border-box;
+  padding: 2px;
+  width: 3.25rem;
+  height: 1.4rem;
+  border-radius: 1rem;
+  background-color: var(--color50);
+}
+
+.language__select {
+  position: absolute;
+  margin: 0;
+  padding: 2px 0 0 1.5rem;
+  outline: none;
+  appearance: none;
+  font-size: 0.8rem;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  color: var(--color00);
+  border: inherit;
+  border-radius: 1rem;
+  background-color: var(--color50);
+  background-repeat: no-repeat;
+  background-size: 1em auto;
+  background-position: 0.4em 0.3em;
+  cursor: pointer;
+  z-index: 1;
+
+  &.en {
+    background-image: url('/icons/en.svg');
+  }
+
+  &.ru {
+    background-image: url('/icons/ru.svg');
+  }
+}

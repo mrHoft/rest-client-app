@@ -1,0 +1,44 @@
+.select {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 0.6rem;
+  border-radius: var(--border-radius);
+  border: var(--border-thickness) solid var(--color30);
+  background-color: var(--color10);
+  color: var(--color100);
+  font-size: 1rem;
+  transition:
+    background-color 0.25s linear,
+    border-color 0.25s linear;
+
+  &:hover {
+    border-color: var(--color40);
+    background-color: var(--color20);
+  }
+}
+
+.select__element {
+  width: 100%;
+  padding: 0.375rem 0;
+  border: none;
+  background-color: inherit;
+  color: inherit;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-text-fill-color: var(--color100);
+}
+.select__element[data-placeholder='true'] {
+  padding: 1rem 0 0.6rem;
+}
+
+.select__placeholder {
+  position: absolute;
+  top: 0;
+  left: 0.6rem;
+  color: inherit;
+  opacity: 0.7;
+  font-size: 0.8em;
+  pointer-events: none;
+  transition: 0.3s ease all;
+}

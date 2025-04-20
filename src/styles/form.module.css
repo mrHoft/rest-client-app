@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  margin: 3rem auto;
+  width: 80%;
+  max-width: 500px;
+  border: var(--border-thickness) solid var(--color30);
+  border-radius: var(--border-radius);
+}
+
+.title {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input_error {
+  color: red;
+  font-size: smaller;
+  height: 1lh;
+}
+
+.form__btns {
+  display: flex;
+  justify-content: center;
+  column-gap: 1rem;
+}
+
+@media (hover: hover) {
+  .input:hover,
+  .input:focus {
+    border-color: var(--color40);
+    background-color: var(--color10);
+  }
+}

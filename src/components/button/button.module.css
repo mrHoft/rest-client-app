@@ -1,0 +1,96 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--color30);
+  cursor: pointer;
+  transition: background-color 0.25s linear;
+}
+
+.button_active {
+  background-color: var(--color50);
+}
+
+.button:disabled {
+  background-color: var(--color20);
+  color: var(--color70);
+  cursor: auto;
+}
+
+.button img {
+  width: 1.5rem;
+  height: 1.5rem;
+  filter: invert(var(--color-scheme));
+}
+
+.button_loader {
+  width: 1rem;
+  height: 1rem;
+  animation: spin 1s linear infinite;
+  background-image: url('/icons/loader.svg');
+  background-size: cover;
+  filter: invert(var(--color-scheme));
+}
+
+@keyframes spin {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+@media (hover: hover) {
+  .button:hover {
+    background-color: var(--color40);
+  }
+
+  .button:disabled:hover {
+    background-color: var(--color20);
+    color: var(--color70);
+  }
+}
+
+.copy__msg {
+  font-size: 0.75rem;
+  background-color: var(--color50);
+  text-align: center;
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
+  position: absolute;
+  z-index: 2;
+  left: 0.75rem;
+  top: -2rem;
+  opacity: 0;
+  animation: show 2.5s forwards;
+  transform: translateX(-50%);
+}
+.copy__msg::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--color50) transparent transparent;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 1rem);
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, 0);
+  }
+  100% {
+    opacity: 1;
+  }
+}

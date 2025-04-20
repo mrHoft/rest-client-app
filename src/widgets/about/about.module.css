@@ -1,0 +1,44 @@
+.about {
+  margin: 2rem auto;
+  padding: 0 1rem;
+  max-width: 60rem;
+}
+
+.about__title {
+  text-align: center;
+}
+
+.about__team {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.about__course_link {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  color: var(--link-color);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--link-color-hover);
+  }
+}
+
+.about__course {
+  margin: 0.5rem auto;
+  display: flex;
+  justify-content: center;
+}
+
+.about__course_logo {
+  width: 3rem;
+  height: 3rem;
+}
+
+.about__course_description {
+  text-align: center;
+}

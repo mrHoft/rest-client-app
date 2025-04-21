@@ -39,6 +39,7 @@ body {
 
 .main {
   position: relative;
+  padding-left: 2.25rem;
   padding-bottom: 2.5rem;
   z-index: 1;
   overflow-y: auto;

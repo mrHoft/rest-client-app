@@ -3,10 +3,8 @@
 import { useRouter } from 'next/navigation';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { RestResponse } from '~/app/rest/actions';
-import { ButtonSquare } from '~/components/button/square';
 import { Loader } from '~/components/loader/loader';
 import { Message } from '~/components/message/message';
-import { Modal } from '~/components/modal/modal';
 import { useDebounce } from '~/entities/useDebounce';
 import useHistory from '~/entities/useHistory';
 import useVariables from '~/entities/useVariables';
@@ -106,15 +104,6 @@ export default function RestClient({
     router.push(requestPath);
   };
 
-  const handleNavigate = (url: string) => () => {
-    Loader.show();
-    router.push(url);
-  };
-
-  const handleCodeGenerator = () => {
-    Modal.show(<CodeGenerator dict={dict} data={stateWithVariables} />);
-  };
-
   const handleMethodChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setState(prev => ({ ...prev, method: e.target.value as TMethod }));
   };
@@ -177,11 +166,6 @@ export default function RestClient({
           {dict.send}
         </button>
       </form>
-      <div className={styles.client__btns}>
-        <ButtonSquare icon="code" title="Generate code" onClick={handleCodeGenerator} />
-        <ButtonSquare icon="list" title="History" onClick={handleNavigate('/history')} />
-        <ButtonSquare icon="hash" title="Variables" onClick={handleNavigate('/variables')} />
-      </div>
       <HeadersEditor dict={dict} headers={headers} setHeaders={setHeaders} />
       <section aria-label="body">
         <h3 className={styles.client__section_title}>{dict.body}</h3>
